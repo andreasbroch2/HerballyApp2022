@@ -1,0 +1,32 @@
+<ion-content text-center>
+  <ion-grid>
+    <ion-row id="row1"></ion-row>
+    <ion-row id="row2"><img src="assets/Logo_herbally.png" /> </ion-row>
+    <ion-row id="row3">
+      <h1>Log ind</h1>
+    </ion-row>
+    <ion-row id="row4">
+      <form (ngSubmit)="login()" [formGroup]="credentials">
+        <ion-item>
+          <ion-input
+            type="email"
+            placeholder="Email"
+            formControlName="email"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          ></ion-input>
+        </ion-item>
+        <ion-button type="submit" expand="block" [disabled]="!credentials.valid"
+          >Log ind</ion-button
+        >
+      </form>
+      <ion-text button (click)="adgangskode()">Glemt adgangskode?</ion-text>
+    </ion-row>
+    <ion-row id="row5"></ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,180 @@
+ion-card{
+    background-color: #ffffff;
+    border-radius: 20px;
+  }
+  ion-icon{
+    font-size:40px;
+    color: #304f23;
+  }
+  ion-card ion-text{
+    text-transform: capitalize;
+    font-size: 17px;
+    font-weight: 500;
+  }
+  h1{
+    margin-top: 10px;
+    font-family: Quicksand;
+  }
+  .status{
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .pris{
+    font-weight: 600;
+    font-size: 20px;
+    color:#304f23
+  }
+  .aktiv{
+    background-color: #304f23; /* Green */
+    border: solid;
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .pause{
+    background-color: rgb(133, 133, 4); /* Green */
+    border: solid;
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .annulleret{
+    background-color: red; /* Green */
+    border: solid;
+    color: white;
+    padding: 7px 15px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  ion-card-content{
+    padding: 5px
+  }
+  ion-button{
+    --border-radius: 100px;
+    --padding-top:0px;
+    --padding-bottom:0px;
+    font-size: 10px;
+    margin: 0px;
+  }
+  .total{
+    font-weight: 600;
+  }
+  ion-card-header{
+    text-align: center;
+  }
+  .kort{
+  padding:0;
+  }
+  .spin {
+    text-align: center;
+    margin-top:100px;
+  }
+  .spin ion-spinner {
+    transform: scale(3);
+    stroke: #fff;
+    fill: #fff;
+  }
+  .loadbar{
+  width: 200px;
+  height: 30px;
+  margin:auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: #46b064;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 12%;
+  z-index: 100;
+  }
+  .abonnement{
+  display: grid; 
+  grid-template-columns: 16% 54% 30%;
+  margin-bottom:20px;
+  justify-items: center;
+  align-items: center;
+  ion-icon{
+    font-size:24px;
+  }
+  }
+  .abonnement div{
+  align-self: center;
+  }
+  p{
+  margin: 0px;
+  }
+  #id{
+  font-size: 12px; 
+  text-align: left;
+  }
+  #overskrift{
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  }
+  .collapsible {
+    padding: 16px;
+  }
+  #leveringscontent{
+  margin:10px;
+  overflow: auto; 
+  text-align: center;
+  }
+  .gridhistory{
+    display:grid;
+    grid-template-columns:10% 55% 35%
+  }
+  #kassecontent{
+  margin:10px;
+  }
+  #betalingcontent{
+  margin:10px;
+  overflow: auto; 
+  }
+  hr{
+  background-color: rgb(161, 160, 160);
+  width:100%;
+  }
+  .contentheading{
+  font-weight: 600;
+  margin: 10px 0px;
+  }
+  .adressegrid{
+  display: grid; 
+  grid-template-columns: 1fr 1fr;
+  }
+  .adresselabel{
+  float:left;
+  margin: 10px 0px;
+  }
+  .adressevalue{
+  float: right;
+  margin: 10px 0px;
+  }
+  .noticelabel{
+  font-size:12px;
+  font-weight: 500;
+  }
+  .noticevalue{
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+  }
+  .grid154045 ion-icon{
+  color: #000;
+  font-size:16px;
+  }

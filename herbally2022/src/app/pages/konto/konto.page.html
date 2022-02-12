@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <img slot="start" alt="logo" height="40" src="/assets/Logo_herbally.png" />
+    <ion-title>Din konto</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="spin" *ngIf="!kunde">
+    <ion-spinner color="primary" name="crescent"></ion-spinner>
+  </div> 
+  <h3 class="ion-text-center" *ngIf="kunde">
+    Velkommen, {{kunde.billing.first_name}}
+  </h3>
+  <ion-card *ngIf="kunde">
+    <ion-card-content>
+        <ion-text class="contentheading">
+          Email<ion-icon
+            button
+            (click)="kundeEmail(customer.id)"
+            class="edit"
+            size="small"
+            name="pencil"
+          ></ion-icon>
+        </ion-text>
+      <ion-text>{{kunde.billing.email}}</ion-text>
+      <ion-text class="contentheading">
+        Telefon<ion-icon
+          button
+          (click)="kundeTelefon(customer.id)"
+          class="edit"
+          size="small"
+          name="pencil"
+        ></ion-icon>
+      </ion-text>
+      <ion-text>{{kunde.billing.phone}}</ion-text>
+      <ion-text class="contentheading">
+        Kontoadresse<ion-icon
+          button
+          (click)="kundeAdresse(customer.id)"
+          class="edit"
+          size="small"
+          name="pencil"
+        ></ion-icon>
+      </ion-text>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-text class="adresselabel">Navn</ion-text>
+          </ion-col>
+          <ion-col size="6" style="text-align: right">
+            <ion-text class="adressevalue"
+              >{{kunde.billing.first_name}}
+              {{kunde.billing.last_name}}</ion-text
+            >
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <ion-text class="adresselabel">Adresse</ion-text>
+          </ion-col>
+          <ion-col size="6" style="text-align: right">
+            <ion-text class="adressevalue"
+              >{{kunde.billing.address_1}} {{kunde.billing.address_2}}</ion-text
+            >
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6">
+            <ion-text class="adresselabel">Postnr. og by</ion-text>
+          </ion-col>
+          <ion-col size="6" style="text-align: right">
+            <ion-text class="adressevalue"
+              >{{kunde.billing.postcode}} {{kunde.billing.city}}</ion-text
+            >
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-button color="tertiary" expand="block" (click)="logout()"
+    >Log ud</ion-button
+  >
+</ion-content>

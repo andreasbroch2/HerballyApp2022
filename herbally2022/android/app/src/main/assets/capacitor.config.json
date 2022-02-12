@@ -1,0 +1,6 @@
+{
+	"appId": "io.herbally.app",
+	"appName": "herbally2022",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

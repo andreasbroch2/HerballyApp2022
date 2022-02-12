@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">herbally2022</string>
+    <string name="title_activity_main">herbally2022</string>
+    <string name="package_name">io.herbally.app</string>
+    <string name="custom_url_scheme">io.herbally.app</string>
+</resources>

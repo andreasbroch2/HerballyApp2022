@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <img slot="start" alt="logo" height="40" src="/assets/Logo_herbally.png" />
+    <ion-title>Købshistorik</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <div class="spin" *ngIf="!orders">
+    <ion-spinner color="primary" name="crescent"></ion-spinner>
+  </div>
+  <ion-item *ngFor="let order of orders" button [routerLink]="['/', 'historik', order.id]">
+    <ion-icon slot="start" src="/assets/icon/box.svg"></ion-icon>
+      <ion-label>
+        {{ parseDate(order.date_created.date) }} -
+        <span *ngIf="order.status==='completed'">Afsendt</span>
+        <span *ngIf="order.status==='processing'">Betalt</span>
+        <span *ngIf="order.status==='refunded'">Refunderet</span>
+        <span *ngIf="order.status==='order-underway'">I gang</span>
+        <span *ngIf="order.status==='failed'">Mislykket</span>
+        <span *ngIf="order.status==='cancelled'">Annulleret</span>
+        <span *ngIf="order.status==='pending'">Behandler</span>
+      </ion-label>
+  </ion-item>
+</ion-content>

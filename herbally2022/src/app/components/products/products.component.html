@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title color="primary">Tilføj produkter</ion-title>
+  </ion-toolbar>
+</ion-header>
+<div class="spin" *ngIf="!products">
+  <ion-spinner color="primary" name="crescent"></ion-spinner>
+</div>
+<ion-content *ngIf="products">
+  <ion-accordion-group>
+    <div *ngFor="let cat of displayCategories">
+      <ion-accordion>
+        <ion-item slot="header">
+          <ion-label color="primary">{{ cat.name }}</ion-label>
+        </ion-item>
+        <div slot="content">
+          <ion-grid *ngFor="let prod of products">
+            <ion-row>
+              <ion-col
+                button
+                (click)="openPicker(prod.id, prod.name)"
+                class="side"
+                *ngIf="(prod.catalog_visibility == 'visible') && checkCategories(prod.categories, cat.id)"
+              >
+                <ion-grid>
+                  <ion-row class="productrow ion-align-items-center">
+                    <ion-col style="text-align: left" size="4">
+                      <img class="prodimg" src="{{prod.images[0].src}}" />
+                    </ion-col>
+                    <ion-col size="8">
+                      <ion-text class="produkt"> {{prod.name}} </ion-text>
+                      <br />
+                      <ion-text class="price"> {{ prod.price }},- </ion-text>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-accordion>
+    </div>
+  </ion-accordion-group>
+</ion-content>

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map, tap, switchMap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { BehaviorSubject, from, Observable, throwError } from 'rxjs';
+import { Storage } from '@capacitor/storage';
 
 const TOKEN_KEY = 'herbally-token';
 
@@ -108,9 +109,9 @@ export class AuthService {
       'user-id': id,
     });
   }
-  changeDate(date, subid) {
+  changeDate(weeks, subid) {
     return this.http.post(`${this.url}myplugin/v1/date`, {
-      date: date,
+      weeks: weeks,
       subscription: subid,
     });
   }
@@ -222,7 +223,7 @@ export class AuthService {
   kunde() {
     const email = localStorage.getItem('email');
     return this.http.get(
-      `https://hololifoods.dk/wc-api/v3/customers/email/${email}?consumer_key=${this.key}&consumer_secret=${this.secret}`
+      `${this.url}wc/v3/customers?email=${email}&role=all&consumer_key=${this.key}&consumer_secret=${this.secret}`
     );
   }
   customer(id) {
@@ -256,9 +257,10 @@ export class AuthService {
       }
     );
   }
-  logout(): Promise<void> {
+  async logout(): Promise<void> {
     this.isAuthenticated.next(false);
     localStorage.clear();
+    await Storage.clear();
     return;
   }
 

@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { SubDetailsPageRoutingModule } from './sub-details-routing.module';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SubDetailsPage } from './sub-details.page';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SubDetailsPage } from './sub-details.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    SubDetailsPageRoutingModule
+    SubDetailsPageRoutingModule,
+    FontAwesomeModule, 
   ],
   declarations: [SubDetailsPage]
 })

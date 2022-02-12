@@ -1,13 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <img
-      slot="end"
-      alt="logo"
-      height="40"
-      src="/assets/Logo_herbally.png"
-    />
+    <img slot="start" alt="logo" height="40" src="/assets/Logo_herbally.png" />
     <ion-title>Abonnement</ion-title>
-    <ion-buttons slot="start">
+    <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
@@ -62,13 +57,7 @@
         ></ion-icon>
       </div>
       <div id="leveringscontent">
-        <p class="subtitle1">
-          Metode<fa-icon
-            [icon]="['fas', 'pencil-alt']"
-            class="edit"
-            (click)="shippingMethod('local_pickup')"
-          ></fa-icon>
-        </p>
+        <p class="subtitle1">Metode</p>
         <p>{{ details.shipping_lines[0].method_title }}</p>
         <div *ngIf="details.status==='active'">
           <p class="subtitle1">
@@ -78,8 +67,7 @@
               [icon]="['fas', 'pencil-alt']"
               class="edit"
               (click)="presentModal('date')"
-              >modal</fa-icon
-            >
+            ></fa-icon>
           </p>
           <ion-text>
             {{ parseDate(details.schedule_next_payment.date) }}
@@ -139,15 +127,18 @@
             button
             (click)="presentModal('edititem', item.name, item.id, item.quantity)"
           >
-            <ion-col size="3">
+            <ion-col size="3" *ngIf="item.name == 'Herbal Box'">
+              <ion-img [src]="item.imageurl"></ion-img>
+            </ion-col>
+            <ion-col size="3" *ngIf="item.name != 'Herbal Box'" class="bundleitem">
               <ion-img [src]="item.imageurl"></ion-img>
             </ion-col>
             <ion-col class="produkt" size="6"> {{ item.name }} </ion-col>
             <ion-col style="font-size: 14px" size="2">
-              <ion-text>
+              <ion-text *ngIf="item.name != 'Herbal Box'">
                 {{ addNumbers(item.total, item.total_tax) | number}} kr.
               </ion-text>
-              <br />
+              <br *ngIf="item.name != 'Herbal Box'"/>
               <ion-text> {{ item.quantity }} stk. </ion-text>
             </ion-col>
             <ion-col size="1">
@@ -276,7 +267,7 @@
     </ion-item>
     <ion-item *ngIf="details.status!='cancelled'" button (click)="afmeld()">
       <ion-icon class="subicon" slot="start" name="trash"></ion-icon>
-      <ion-label> Afmeld måltidskasse </ion-label>
+      <ion-label> Afmeld abonnement</ion-label>
     </ion-item>
   </div>
   <ion-modal

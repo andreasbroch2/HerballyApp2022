@@ -9,6 +9,9 @@ import {
 } from "@ionic/angular";
 import { format, parseISO, add } from "date-fns";
 import { da } from "date-fns/locale";
+import { ChangedateComponent } from "../../components/changedate/changedate.component";
+import { EdititemComponent } from "../../components/edititem/edititem.component";
+import { ProductsPage } from "../products/products.page";
 
 @Component({
   selector: "app-sub-details",
@@ -79,6 +82,33 @@ export class SubDetailsPage implements OnInit {
     var initial = 0.5;
     var breakpoints = [0, 0.5];
     var componentProps = {};
+    if (componentstring == "date") {
+      component = ChangedateComponent;
+      var initial = 0.7;
+      var breakpoints = [0, 0.7];
+      componentProps = {
+        subid: this.id,
+      };
+    }
+    if (componentstring == "edititem") {
+      component = EdititemComponent;
+      var initial = 0.4;
+      var breakpoints = [0, 0.4];
+      componentProps = {
+        id: this.id,
+        productName: prop1,
+        productId: prop2,
+        quant: prop3,
+      };
+    }
+    if (componentstring == "ProductsPage") {
+      component = ProductsPage;
+      var initial = 0.9;
+      var breakpoints = [0, 0.9];
+      componentProps = {
+        id: this.id,
+      };
+    }
     const modal = await this.modalController.create({
       component: component,
       componentProps: componentProps,
@@ -259,13 +289,13 @@ export class SubDetailsPage implements OnInit {
                 .subscribe((result) => {
                   this.details = result;
                   this.loadingController.dismiss();
-                  this.presentToast("Måltidskasse sat på pause!");
+                  this.presentToast("Abonnement sat på pause!");
                 });
             } else if (this.details.status === "on-hold") {
               this.authService.status(this.id, "active").subscribe((result) => {
                 this.details = result;
                 this.loadingController.dismiss();
-                this.presentToast("Måltidskasse aktiveret!");
+                this.presentToast("Abonnement aktiveret!");
               });
             }
           },
@@ -340,7 +370,7 @@ export class SubDetailsPage implements OnInit {
                   .cancelReason(this.details.customer_id, data.reason)
                   .subscribe((result) => {});
                   this.loadingController.dismiss();
-                this.presentToast("Måltidskasse afmeldt!");
+                this.presentToast("Abonnement afmeldt!");
                 this.router.navigate(["/"]);
               });
             }

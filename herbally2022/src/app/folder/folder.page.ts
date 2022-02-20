@@ -4,6 +4,13 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { add, format, parseISO } from "date-fns";
 import { da } from "date-fns/locale";
+import {
+  ActionPerformed,
+  PushNotificationSchema,
+  PushNotifications,
+  Token,
+} from '@capacitor/push-notifications';
+import { LocalNotifications } from '@capacitor/local-notifications';
 
 @Component({
   selector: 'app-folder',
@@ -22,6 +29,15 @@ export class FolderPage implements OnInit {
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     this.auth();
+    PushNotifications.requestPermissions().then(result => {
+      if (result.receive === 'granted') {
+        // Register with Apple / Google to receive push via APNS/FCM
+        PushNotifications.register();
+      } else {
+        // Show some error
+      }
+    })
+    LocalNotifications.requestPermissions()
   }
   parseDate(isodate, days = 0){
     return format(add(parseISO(isodate), {

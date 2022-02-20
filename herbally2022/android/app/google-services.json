@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "263485547977",
+    "project_id": "herballyapp",
+    "storage_bucket": "herballyapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263485547977:android:02987870df7fa175c23418",
+        "android_client_info": {
+          "package_name": "io.herbally.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "263485547977-aoar04r9r6vv4m55nfsk2h97q1lf4sl5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3QbxsqwBaF_fMXmoq3LkOvsYLZVkYKeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "263485547977-aoar04r9r6vv4m55nfsk2h97q1lf4sl5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
